@@ -1,0 +1,174 @@
+---
+jupyter:
+  jupytext:
+    notebook_metadata_filter: all,-language_info
+    split_at_heading: true
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.16.0
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Analysis of the Cross-cultural study of Abortion Attitudes Dataset
+
+## Instructions
+
+Your task in this assessment is to use the model-building and model selection
+strategies we have covered in this section of the course to evaluate the
+following hypothesis:
+
+> A person's view on abortion is a function of their views on sex and gender,
+their views on the importance of motherhood, and their religious views.
+
+The dataset you will analyse is called the 'Cross-cultural study of Abortion
+Attitudes Dataset'. You can find it in this repo in `data/abortion_views.csv`.
+
+The dataset was generated via an online survey, which sampled people living
+Mexico, India, the United States and the United Kingdom. Participants were
+asked about their views on abortion, their religious beliefs, and their
+attitudes towards sex and gender, amongst other questions. The source of the
+dataset can be found
+[here](https://figshare.com/articles/dataset/Cross-cultural_study_of_abortion_attitudes_-_data_file/24119271).
+
+There is a file in this repo called `describe_dataset_full.html`, which you can
+view in a browser — it contains a description of each variable in the dataset.
+Most often the description of each variable is the text of the survey question
+that was shown to the survey respondent (e.g. the question that generated each
+participant's score on that variable). The file also shows the unique values
+for each variable (i.e all the values the variable can take in the dataset). It
+also shows the possible responses that survey participants could have selected,
+even if some of these do not appear in the actual data (e.g. if no respondents
+selected those responses). Note: some variables contain free text responses,
+where survey respondents could type anything they wanted - other variables,
+those ending with a capital "R", are recoded versions of other variables in the
+dataset, containing numerical codes rather than strings.
+
+You will need to refer back to `describe_dataset_full.html` to understand what
+the variables mean, and what the individual scores mean. 
+
+### Finding the "best" model
+
+Here, again, is the hypothesis you should test (you might also think of it as
+a "verbal model", your job is to turn it into a statistical model):
+
+> A person's view on abortion is a function of their views on sex and gender,
+their views on the importance of motherhood, and their religious views.
+
+You job is to see whether the data supports or refutes this hypothesis. There
+are many variables in the dataset which are relevant to evaluating this
+hypothesis - you do not have to use all of the variables. Your job is to use
+the model comparison/selection techniques we have shown you in order to find
+a model that is:
+
+- relevant to testing the hypothesis
+- has a desirable balance of goodness-of-fit and complexity (e.g. is
+  *parsimonious* and is unlikely to be a victim of overfitting)
+
+You could also include other variables in your model (e.g. those not explicitly
+mentioned in the hypothesis) if you think it is relevant to statistically
+control/adjust for them.
+
+You can fit your models with `statsmodels` or `sklearn`, and can use any of the
+models we have covered in the course that you think are appropriate, as well as
+any of the model comparison techniques (e.g. comparison of the Akaike
+Information Criterion; Leave-One-Out Cross-validation; K-fold
+Cross-validation...)
+
+You should use the `sheYES_heYES` variable as your target/outcome variable
+(this can be taken as a general proxy for a participant's view on abortion).
+Here is the description of this variable from the `describe_dataset_full.html`
+file:
+
+```
+Column Name: 'sheYES_heYES'
+
+Description: What if Angela is leaning toward having an abortion, and Angela’s
+husband agrees and thinks she should have an abortion given the
+circumstances...
+
+... do you think that abortion should or should not be an option available to
+Angela?
+
+Unique Values: [7. 8.]
+
+Score Interpretation Info: {7.0: 'Yes, Angela should be allowed to access
+abortion', 8.0: 'No, Angela should not be allowed to access abotion'}
+```
+
+Your analysis should be split into these sections (if you scroll down, these
+are already created for you at the end of this notebook):
+
+- Cleaning the data (this may include tidying up participants' responses, dummy
+  coding, you could aggregate multiple variables into a single predictor if you
+  think this would be useful, etc).
+- Graphical data analysis (creating plots of the relevant variables, to see how
+  they are associated).
+- Identification of a relevant model to fit to your data (e.g. the appropriate
+  type of regression model).
+- Model fitting and model comparison (to find the most parsimonious model e.g.
+  a model with enough useful predictors to be a good fit, without being
+  needlessly complex/risking overfitting).
+- Selection and justification of one final model which you think has good
+  explanatory power, and is parsimonious.
+- Explanation of what you think the model tells us about the truth/falsity (or
+  partial truth and/or partial falsity) of the hypothesis you are testing.
+
+**Important:** there is no one specific final model we are expecting here. We
+are more interested in how you reason and the decisions you make to get your
+final model. Remember, model building is an art as much as a science - but you
+should explain and justify any choices you make in the analysis.
+
+Please explain what you are doing and why, using comments in the code and by
+using Markdown cells with accompanying text.
+
+**Warning**: some variables will introduce "target leak"; other variables are
+aggregates (e.g. the sum or mean of all responses for a specific
+questionnaire). Be aware of this when you are fitting your models!
+
+### More about the dataset
+
+Some column names begin with the acronymns "GRAS" and "SOI", with these meanings:
+
+`GRAS` — participant responses to an abridged version of the Gender Recognition
+Attitudes Scale. Information about the questionnaire can be found
+[here](https://www.sciencedirect.com/science/article/pii/S1697260014000593#sec0040)
+
+`SOI` — participant responses to the Sociosexual Orientation Inventory.
+Information about the questionnaire can be found
+[here](https://www.larspenke.eu/pdfs/SOI-R%20Manual.pdf)
+
+The full dataset contains responses for the individual questions on these
+questionnaires, as well as the SUM and MEAN of the responses for each
+questionnaire, for each participant.
+
+
+## Data Analysis
+
+### Importing and Cleaning
+
+```{python}
+# your code here
+```
+
+### Graphical Exploration
+
+```{python}
+# your code here
+```
+
+### Model Comparison
+
+```{python}
+# your code here
+```
+
+## Discussion and Justification of Final Model
+
+```{python}
+# your code here
+```
